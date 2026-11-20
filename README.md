@@ -23,6 +23,13 @@ Seoul                    20:41
 
 Both come with a small app for choosing the cities (up to 10) and options.
 
+## Contents
+
+- [macOS](#macos)
+- [Android](#android)
+  - [Energy use](#energy-use)
+- [Layout](#layout)
+
 ## macOS
 
 <p>
