@@ -4,11 +4,15 @@
     <color name="bg_top">#FF2B2B2B</color>
     <color name="bg_bottom">#FF1A1A1A</color>
     <color name="digits">#FFFFFFFF</color>
-    <color name="label">#FF999999</color>
+    <color name="label">#FFB3B3B3</color>
     <color name="home_date">#FFC7C7C7</color>
     <color name="accent">#FFFF9E0A</color>
     <color name="sun">#FFFFD633</color>
     <color name="moon">#FFA39EFF</color>
     <color name="home">#FF30D159</color>
-    <color name="divider">#1AFFFFFF</color>
+    <color name="divider">#33FFFFFF</color>
+    <color name="accent_soft">#29FF9E0A</color>
+    <color name="app_bg">#FF121212</color>
+    <color name="surface">#FF232323</color>
+    <color name="on_accent">#FF1A1A1A</color>
 </resources>

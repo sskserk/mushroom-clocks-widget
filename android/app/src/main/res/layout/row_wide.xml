@@ -16,38 +16,63 @@
         <TextView
             android:id="@+id/name"
             style="@style/CityName"
-            android:textSize="17sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/date"
             style="@style/CityDate"
-            android:textSize="10sp" />
+            android:textSize="7sp" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/phase"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_marginStart="8dp"
         android:importantForAccessibility="no" />
 
-    <TextView
-        android:id="@+id/offset"
-        style="@style/Offset"
-        android:minWidth="40dp"
-        android:gravity="end"
-        android:textSize="12.5sp" />
+    <!-- Columns: each is as wide as its widest possible text (the invisible
+         sample), so icon, offset and time line up in every row at any font size. -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp">
 
-    <TextClock
-        android:id="@+id/time"
-        style="@style/Time"
-        android:layout_marginStart="12dp"
-        android:minWidth="74dp"
-        android:gravity="end"
-        android:textSize="27sp" />
+        <TextView
+            style="@style/Offset"
+            android:gravity="center"
+            android:text="+0:00"
+            android:textSize="8.5sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/offset"
+            style="@style/Offset"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textSize="8.5sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            style="@style/Time"
+            android:text="00:00"
+            android:textSize="20sp"
+            android:visibility="invisible" />
+
+        <TextClock
+            android:id="@+id/time"
+            style="@style/Time"
+            android:layout_gravity="end"
+            android:textSize="20sp" />
+    </FrameLayout>
 
     <TextClock
         android:id="@+id/seconds"
         style="@style/Seconds"
-        android:textSize="13sp" />
+        android:textSize="9sp" />
 </LinearLayout>
