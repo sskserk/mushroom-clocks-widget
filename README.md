@@ -25,6 +25,12 @@ Both come with a small app for choosing the cities (up to 10) and options.
 
 ## macOS
 
+<p>
+  <img src="docs/macos-medium.png" width="360" alt="Medium macOS widget: Washington, Amsterdam and Seoul with full dates, time differences, sun and moon icons, and large times">
+  &nbsp;
+  <img src="docs/macos-small.png" width="180" alt="Small macOS widget: the same three cities with short dates">
+</p>
+
 ```sh
 cd macos
 ./install.sh      # build, install into /Applications, and open the app
