@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One city in a wide widget: name and full date; icon, offset and a large time in columns. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/CityName"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/CityDate"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/phase"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/offset"
+        style="@style/Offset"
+        android:minWidth="40dp"
+        android:gravity="end"
+        android:textSize="12.5sp" />
+
+    <TextClock
+        android:id="@+id/time"
+        style="@style/Time"
+        android:layout_marginStart="12dp"
+        android:minWidth="74dp"
+        android:gravity="end"
+        android:textSize="27sp" />
+
+    <TextClock
+        android:id="@+id/seconds"
+        style="@style/Seconds"
+        android:textSize="13sp" />
+</LinearLayout>

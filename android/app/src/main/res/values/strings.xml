@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mushroom Clocks</string>
+    <string name="widget_description">Digital clocks with each city\'s time difference from this phone.</string>
+</resources>

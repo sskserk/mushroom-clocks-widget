@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The Mac widget's palette: charcoal background, white digits, grey dates, orange accent. -->
+<resources>
+    <color name="bg_top">#FF2B2B2B</color>
+    <color name="bg_bottom">#FF1A1A1A</color>
+    <color name="digits">#FFFFFFFF</color>
+    <color name="label">#FF999999</color>
+    <color name="home_date">#FFC7C7C7</color>
+    <color name="accent">#FFFF9E0A</color>
+    <color name="sun">#FFFFD633</color>
+    <color name="moon">#FFA39EFF</color>
+    <color name="home">#FF30D159</color>
+    <color name="divider">#1AFFFFFF</color>
+</resources>
