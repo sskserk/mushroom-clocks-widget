@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Fully transparent: the wallpaper shows through. The text carries a soft shadow instead (see styles.xml). -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <gradient
-        android:angle="270"
-        android:startColor="@color/bg_top"
-        android:endColor="@color/bg_bottom" />
+    <solid android:color="@android:color/transparent" />
     <corners android:radius="@android:dimen/system_app_widget_background_radius" />
 </shape>

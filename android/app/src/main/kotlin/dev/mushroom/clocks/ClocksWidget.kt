@@ -125,7 +125,7 @@ class ClocksWidget : AppWidgetProvider() {
             local: ZoneId, now: Instant,
         ): RemoteViews {
             val wide = size.width >= WIDE_FROM
-            val rowHeight = if (wide) 50f else 44f
+            val rowHeight = if (wide) 46f else 40f
             val count = ((size.height - 12f) / rowHeight).toInt().coerceIn(1, cities.size.coerceAtLeast(1))
             val root = RemoteViews(context.packageName, R.layout.widget)
             root.removeAllViews(R.id.rows)
