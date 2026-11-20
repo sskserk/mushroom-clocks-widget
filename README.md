@@ -63,6 +63,15 @@ How it works:
 
 ## Android
 
+<p>
+  <img src="docs/android-widget.png" width="400" alt="Transparent Android widget: New York, London, Amsterdam and Tokyo with full dates, sun and moon icons, time differences in orange pills, and large times in aligned columns">
+  &nbsp;
+  <img src="docs/android-settings.png" width="200" alt="Android settings screen: your cities as cards with time differences and reorder buttons, a Show seconds switch, an orange Add widget to home screen button, and a city search">
+</p>
+
+The widget is transparent, so it takes on your wallpaper. On a light wallpaper
+the grey dates are harder to read.
+
 ```sh
 cd android
 ./gradlew assembleRelease     # app/build/outputs/apk/release/app-release.apk
