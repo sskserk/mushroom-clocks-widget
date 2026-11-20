@@ -38,12 +38,13 @@ struct ClocksProvider: TimelineProvider {
         let cities = CityStore.load()
         let settings = ClockSettings.load()
         let now = Date()
-        let shown = Array(cities.prefix(ClocksWidgetView.layout(family: context.family, cityCount: cities.count).limit))
+        let layout = ClocksWidgetView.layout(family: context.family, cityCount: cities.count)
+        let shown = Array(cities.prefix(layout.limit))
         var entries: [ClocksEntry] = []
         var size = 0
         for date in ClockText.timelineDates(from: now, zones: Set(cities.map(\.timeZone) + [TimeZone.current]), days: 6) {
             let detailed = date <= now.addingTimeInterval(ClockText.detailedSpan)
-            size += Self.archiveSize(of: shown, at: date, settings: settings, detailed: detailed)
+            size += Self.archiveSize(of: shown, at: date, settings: settings, detailed: detailed, size: layout.size)
             if size > Self.archiveBudget && !entries.isEmpty { break }
             entries.append(ClocksEntry(date: date, cities: cities, settings: settings, detailed: detailed))
         }
@@ -59,12 +60,24 @@ struct ClocksProvider: TimelineProvider {
     /// Roughly the bytes one entry adds to the timeline archive. Measured on
     /// macOS 26: about 14 kB for every ticking text, of which a city has one
     /// (two with seconds) and a blinking colon ten, and about 25 kB for the
-    /// rest of a city's row.
-    static func archiveSize(of cities: [ClockCity], at date: Date, settings: ClockSettings, detailed: Bool) -> Int {
+    /// rest of a city's row. Those figures are for the compact text; the
+    /// larger text costs more (see sizeFactor).
+    static func archiveSize(of cities: [ClockCity], at date: Date, settings: ClockSettings, detailed: Bool,
+                            size: ClocksView.Size) -> Int {
         let blinking = detailed && !settings.showSeconds ? cities.filter { ClockText.isHome($0.timeZone, at: date) }.count : 0
         let timers = cities.count * (settings.showSeconds ? 2 : 1) + blinking * 10
-        return 10_000 + cities.count * 25_000 + timers * 14_500
+        let compact = 10_000 + cities.count * 25_000 + timers * 14_500
+        return Int(Double(compact) * sizeFactor[size]!)
     }
+
+    /// How much more an entry costs at each text size than at compact. The
+    /// archive grows with the size of the ticking text, and the blinking
+    /// colon's peepholes are set in a font that grows with it. Wide is
+    /// measured: with three cities the same timeline came out at 5.3 MB in a
+    /// small widget and 10.7 MB (rejected) in a medium one. Roomy is not yet
+    /// measured; its value assumes growth with the 1.5th power of the time's
+    /// font size (17, 27, 34 pt), which fits the wide measurement.
+    static let sizeFactor: [ClocksView.Size: Double] = [.compact: 1, .wide: 2.05, .roomy: 2.9]
 }
 
 struct ClocksWidgetView: View {
